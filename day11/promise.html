@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Closures</h2>
+
+<p>Counting with a local variable.</p>
+
+<button type="button" onclick="myFunction()">Count!</button>
+
+<p id="demo">0</p>
+<p id="id2">3</p>
+
+<script>
+var add = (function () {
+  var counter = 0;
+  return function () {counter += 1; return counter;}
+})();
+
+function myFunction(){
+ a() = add;
+var b = add()
+  document.getElementById("demo").innerHTML = a();
+    document.getElementById("id2").innerHTML = b;
+}
+</script>
+
+</body>
+</html>
