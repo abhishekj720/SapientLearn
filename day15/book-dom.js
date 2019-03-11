@@ -16,7 +16,10 @@
     let controls = {
         add:document.querySelector('#btnAdd')
     }
-      
+
+
+
+    
     let columnNames=[];
     function createElement(elementType) {
         return document.createElement(elementType);
