@@ -31,6 +31,18 @@
             });
             return change;
         }
+        //  userList = null;
+        function isAuthorizedPromise(user) {
+          return new Promise(function (resolve,reject) {
+            try{            
+              resolve(userList.indexOf(user) >= 0)
+            }
+            catch(ex){
+              console.log("sdfasdfas")
+              reject('userList is empty')
+            }
+          });
+        }
     </script>
     <script>
       // This is what a simple unit test looks like:
@@ -44,54 +56,55 @@
     //     assert.equal(result, 0); // we *expect* this to fail
     //   });
 
-      test('If the vending machine does not have change available',function(assert){
-              var result = 0;
-        assert.equal("Vending mc does not have cash available","Vending mc does not have cash available")
+      // test('If the vending machine does not have change available',function(assert){
+      //         var result = 0;
+      //   assert.equal("Vending mc does not have cash available","Vending mc does not have cash available")
 
-      });
+      // });
 
-      test('If the amount paid is less',function(assert){
-                   var result = getChange(300,100)
-                   assert.equal(result,'amount paid less. Please pay more')
-      });
-
-      
-      test('If the amount paid is more',function(assert){
-                   var result = getChange(100,300)
-                   assert.equal(result,'amount paid more by 200')
-      });
+      // test('If the amount paid is less',function(assert){
+      //              var result = getChange(300,100)
+      //              assert.equal(result,'amount paid less. Please pay more')
+      // });
 
       
-      test('If the amount paid is exact',function(assert){
-                   var result = getChange(300,300)
-                   assert.equal(result,'amount paid exactly and that is '+result)
-      });
+      // test('If the amount paid is more',function(assert){
+      //              var result = getChange(100,300)
+      //              assert.equal(result,'amount paid more by 200')
+      // });
 
-      test('When payable=400 ,paid=450,i should get the change',function(assert){
-          var result = 1+1;
-          assert.equal(result,2);
-      });
-      test('When payable=450 ,paid=400,i should give more',function(assert){
-          var result = 1+1;
-          assert.equal(result,2);
-      });
+      
+      // test('If the amount paid is exact',function(assert){
+      //              var result = getChange(300,300)
+      //              assert.equal(result,'amount paid exactly and that is '+result)
+      // });
 
-      test('When paid is negative integer,error should give more',function(assert){
-          var result = getChange(300,-200);
-          assert.equal(result,"Please give proper amount");
-      });
+      // test('When payable=400 ,paid=450,i should get the change',function(assert){
+      //     var result = 1+1;
+      //     assert.equal(result,2);
+      // });
+      // test('When payable=450 ,paid=400,i should give more',function(assert){
+      //     var result = 1+1;
+      //     assert.equal(result,2);
+      // });
 
-      test('When paid is not a number',function(assert){
-          var result = getChange(300,"ten");
-          assert.equal(result,"Please give proper amount");
-      });
+      // test('When paid is negative integer,error should give more',function(assert){
+      //     var result = getChange(300,-200);
+      //     assert.equal(result,"Please give proper amount");
+      // });
 
-      test('When paid amount is infinity',function(assert){
-          var result = getChange(300,9999999)
-          assert.equal(result,"Amount is huge to process")
-      });
+      // test('When paid is not a number',function(assert){
+      //     var result = getChange(300,"ten");
+      //     assert.equal(result,"Please give proper amount");
+      // });
+
+      // test('When paid amount is infinity',function(assert){
+      //     var result = getChange(300,9999999)
+      //     assert.equal(result,"Amount is huge to process")
+      // });
 
     
     </script>
+    <script src="testPromise.js"></script>
   </body>
 </html>
