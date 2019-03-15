@@ -1,0 +1,15 @@
+$sucess:black;
+$primary:red;
+$marginTop1: 1px;
+$marginTop2: 2px;
+
+@import 'main';
+.btn-success{
+  background:$sucess;
+
+}
+.btn-primay{
+  background:$primary;
+  margin-top:$marginTop1;
+}
+@include changeColor();

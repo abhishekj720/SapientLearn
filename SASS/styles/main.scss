@@ -1,0 +1,27 @@
+$sucess:green;
+$primary:blue;
+$marginTop1: 1px;
+$marginTop2: 2px;
+.btn-success{
+  background:$sucess;
+}
+.btn-primay{
+  background:$primary;
+  margin-top:$marginTop1;
+}
+
+@mixin changeColor {
+  background: violet;
+}
+
+.col-50{
+  @include gutter();
+  width: 50%;
+  
+}
+
+@mixin gutter {
+  margin: 1%;
+  display: inline;
+  
+}
