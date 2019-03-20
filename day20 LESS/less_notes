@@ -1,0 +1,27 @@
+nav ul {
+    &: extend(.inline);
+    background: blue;
+}
+or
+nav ul :extend(.inline) {
+
+}
+
+
+.mixin (@a) when (@a > 0) { ... }
+.mixin (@a) when (default())  { ... }
+
+@{i}  here i will be taken as character
+@i   will give the value of i
+
+.generate-columns{@n, @i: 1} when (@i =< @n) {
+    .column-@{i} {
+        width: {@i*100%/@n};
+    }
+    .generate-columns(@n, (@i + 1));
+}
+
+in css it is .column-1 { width: 25%; }
+                                50  
+                                75
+                                100

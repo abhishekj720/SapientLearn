@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+</head>
+
+<body style='margin: 0 1em;'>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <script>
+        var books = [{
+            id: 1,
+            name: "The Night"
+        }];
+
+        function getId(id) {
+            return getBooks().findIndex(x => x.id == id);
+        }
+
+        function addBook(book) {
+            if (getId(book.id)==-1) {
+                books.push(book);
+                index = getId(book.id)
+                if(index>=0)
+                return "book added";
+            } else {
+                return 'Duplicate id';
+            }
+        }
+
+        function deleteBook(id) {
+            var index = getId(id);
+            if (index == -1){
+                return "No book found with this id";
+            }
+            else{
+                books.splice(index,1)
+                index = getId(id)
+                if(index== -1)
+                return 'Book with this id deleted successfully';
+            }
+        }
+
+
+        function getBooks() {
+            return books;
+        }
+
+        var va;
+        const updateBook = book => {
+            return new Promise((resolve,reject) => {
+                if(getId(book.id)>=0){
+                    va="book updated";
+                    resolve('book updated')
+                }
+                else {
+                    va="book does not exist"
+                    reject('book does not exist')
+                }
+            })
+        }
+        
+       
+    </script>
+    <script>
+        test('it should add a book to array', function (assert) {
+            var result = addBook({id:3,name:"You Cannot Move"});
+            assert.equal(result, "book added" );
+        });
+
+        test('it should check for duplicate entry while adding', function (assert) {
+            var result = addBook({id:3,name:"You Cannot Move"});
+            assert.equal(result, "Duplicate id");
+        });
+
+        test('it should check if book exist while deleting', function (assert) {
+            var result = deleteBook(2);
+            assert.equal(result, "No book found with this id");
+        });
+
+        test('it should check if the book is deleted successfully', function (assert) {
+            var result = deleteBook(3);
+            assert.equal(result, "Book with this id deleted successfully");
+        });
+
+        test('it should check if updateBook returns a promise', function (assert) {
+            const promise = updateBook({id:1,name:"The Night"})
+            var result = va;
+           
+            assert.equal(result, "book updated");
+        });
+
+        test('it should check if updateBook returns an error if book does not exist', function (assert) {
+            const promise = updateBook({id:2,name:"harry potter"})
+            var result = va;
+         
+            assert.equal(result, "book does not exist");
+        });
+
+        test('it should check if getBooks returns an array', function (assert) {
+            var result = getBooks();
+            assert.equal(result, books);
+        });
+    </script>
+</body>
+
+</html>

@@ -14,14 +14,15 @@ $marginTop2: 2px;
   background: violet;
 }
 
-.col-50{
-  @include gutter();
-  width: 50%;
-  
-}
 
 @mixin gutter {
   margin: 1%;
   display: inline;
+  
+}
+
+.col-50{
+  @include gutter();
+  width: 48%;
   
 }

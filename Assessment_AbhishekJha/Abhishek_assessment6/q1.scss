@@ -1,0 +1,10 @@
+@import 'main';
+body #main .value {
+    background: rgb(3, 78, 9);
+    a:link {
+        color: #eee;
+        text-decoration: none;
+        font-size: 2em;
+    }
+    @include changeColor();
+}
