@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script>
+    
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <h1>HI BUDDY</h1>
+
+
+    <script type="text/jsx">
+        //1.Create/Define the component
+        //2>Instantiate the component
+
+        class BasicComponent extends React.Component{
+            render(){
+               return <section>
+                            <h1>hello JSX </h1>
+                            <p> This is para </p>
+                        </section>    
+            }
+        }
+<!-- cannot return more than 1 instances therefore if want to send more then wrap it inside div or other components -->
+        var basicCompInstance = <div>
+                                    <BasicComponent />
+                                            <BasicComponent />
+                                                    <BasicComponent />
+                                                            <BasicComponent />
+                                                                    <BasicComponent />
+                                                                    </div>
+        ReactDOM.render(basicCompInstance,document.getElementById("container"));
+    </script>
+
+</body>
+</html>

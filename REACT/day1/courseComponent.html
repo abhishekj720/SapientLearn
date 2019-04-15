@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+
+
+    <script type="text/jsx">
+        //1.Create/Define the component
+        //2>Instantiate the component
+        class CourseComponent extends React.Component{
+
+           
+            render(){
+              
+                return <div>
+                    <h1>{this.props.coursename}</h1>
+                    <h5> Duration:</h5> {if(this.props.duration != null){
+                        this.props.duration
+                    }
+                else{
+                    5
+                }}
+                </div>
+            }
+        }
+        class ListOfCourses extends React.Component{
+
+            constructor(){
+                super()
+                this.courseOne = "React"
+                this.courseTwo = "Angular in constructor"
+                this.courseThree = "Node"
+            }
+
+            render(){
+               return <div>
+                            <CourseComponent coursename="REACT" duration="3 Days"/>
+                            <CourseComponent coursename={this.courseTwo} />
+                            <CourseComponent coursename="Node" />
+                            <CourseComponent />
+                            
+               </div>   
+            }
+        }
+        var basicCompInstance = <div>
+                                    <ListOfCourses />
+                                                            </div>
+        ReactDOM.render(basicCompInstance,document.getElementById("container"));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+    <!-- <script href="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script> -->
+
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <!-- <h1>HI BUDDY</h1> -->
+
+
+    <script>
+        //1.Create/Define the component
+        //2>Instantiate the component
+
+        class BasicComponent extends React.Component {
+            render() {
+                return React.createElement('h1', {}, "Hello Component!");
+            }
+        }
+
+        var basicCompInstance = React.createElement(BasicComponent);
+        ReactDOM.render(basicCompInstance, document.getElementById("container"))
+    </script>
+
+</body>
+
+</html>
