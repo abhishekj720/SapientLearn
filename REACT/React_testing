@@ -1,7 +1,7 @@
 1. npm install jasmine-core karma karma-jasmine
 2. npm install karma-cli -g (karma.exe)
 3. Write test suites & test cases !
-4. Create a karma config file   ( npm init) 
+4. Create a karma config file   ( karma init) 
   jasmine no chrome  yes           in karma.conf.js u can include or exlude and include path
 5. karma start -> run the test cases/suites  
 
